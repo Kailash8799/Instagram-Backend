@@ -1,8 +1,8 @@
-﻿using Instagram.Services.AuthenticationAPI.Models;
+﻿using Instagram.Services.UserAPI.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Text.RegularExpressions;
 
-namespace Instagram.Services.AuthenticationAPI.Utils {
+namespace Instagram.Services.UserAPI.Utils {
     public class CustomUserValidator: IUserValidator<User> {
         public Task<IdentityResult> ValidateAsync(UserManager<User> manager, User user) {
             var errors = new List<IdentityError>();

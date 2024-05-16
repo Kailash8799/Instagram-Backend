@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Instagram.Services.AuthenticationAPI.Models {
+namespace Instagram.Services.UserAPI.Models {
     public class User : IdentityUser {
 
         // Id comes from IdentityUser
@@ -21,6 +21,7 @@ namespace Instagram.Services.AuthenticationAPI.Models {
 
         public string Bio { get; set; } = "";
         public string ProfilePictureUrl { get; set; } = "";
+
         public string PhoneNumber { get; set; } = "";
         public string Gender { get; set; } = "";
 

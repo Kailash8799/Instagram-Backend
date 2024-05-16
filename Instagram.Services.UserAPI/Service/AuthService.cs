@@ -1,12 +1,12 @@
-﻿using Instagram.Services.AuthenticationAPI.Data;
-using Instagram.Services.AuthenticationAPI.Models;
-using Instagram.Services.AuthenticationAPI.Models.Dto;
-using Instagram.Services.AuthenticationAPI.Service.IService;
+﻿using Instagram.Services.UserAPI.Data;
+using Instagram.Services.UserAPI.Models;
+using Instagram.Services.UserAPI.Models.Dto;
+using Instagram.Services.UserAPI.Service.IService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 
-namespace Instagram.Services.AuthenticationAPI.Service {
+namespace Instagram.Services.UserAPI.Service {
     public class AuthService : IAuthService {
 
         private readonly AppDbContext _db;
@@ -64,11 +64,11 @@ namespace Instagram.Services.AuthenticationAPI.Service {
                     UserName = registrationRequestDto.UserName,
                 };
 
-                var responce = await _userManager.CreateAsync(newuser,registrationRequestDto.Password);
-                if (responce != null && responce.Succeeded) {
+                var response = await _userManager.CreateAsync(newuser,registrationRequestDto.Password);
+                if (response != null && response.Succeeded) {
                     return new RegistrationResponseDTO() { success = true, message = "User created successfully"};
                 }
-                return new RegistrationResponseDTO() { success = false, message = responce.Errors.FirstOrDefault().Description };
+                return new RegistrationResponseDTO() { success = false, message = response.Errors.FirstOrDefault().Description };
             } catch (Exception) {
                 return new RegistrationResponseDTO() { success = false, message = "Internal server error" };
             }

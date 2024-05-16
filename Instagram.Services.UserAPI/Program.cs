@@ -1,10 +1,13 @@
-using Instagram.Services.AuthenticationAPI.Data;
-using Instagram.Services.AuthenticationAPI.Models;
-using Instagram.Services.AuthenticationAPI.Service;
-using Instagram.Services.AuthenticationAPI.Service.IService;
-using Instagram.Services.AuthenticationAPI.Utils;
+using Instagram.Services.UserAPI.Data;
+using Instagram.Services.UserAPI.Extensions;
+using Instagram.Services.UserAPI.Models;
+using Instagram.Services.UserAPI.Service;
+using Instagram.Services.UserAPI.Service.IService;
+using Instagram.Services.UserAPI.Utils;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +20,7 @@ builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppD
 builder.Services.AddControllers();
 builder.Services.AddTransient<IUserValidator<User>, CustomUserValidator>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 //builder.Services.AddControllers().AddJsonOptions(options => {
   //  options.JsonSerializerOptions.PropertyNamingPolicy = null;
@@ -24,8 +28,30 @@ builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
+builder.Services.AddSwaggerGen(option => {
+    option.AddSecurityDefinition(name: JwtBearerDefaults.AuthenticationScheme, securityScheme: new OpenApiSecurityScheme {
+        Name = "Authorization",
+        Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+    option.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference= new OpenApiReference
+                {
+                    Type=ReferenceType.SecurityScheme,
+                    Id=JwtBearerDefaults.AuthenticationScheme
+                }
+            }, new string[]{}
+        }
+    });
+});
+builder.AddAppAuthetication();
+builder.Services.AddAuthorization();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

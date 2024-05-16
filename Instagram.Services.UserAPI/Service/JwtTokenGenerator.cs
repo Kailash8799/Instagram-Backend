@@ -1,13 +1,13 @@
-﻿using Instagram.Services.AuthenticationAPI.Models;
-using Instagram.Services.AuthenticationAPI.Models.Dto;
-using Instagram.Services.AuthenticationAPI.Service.IService;
+﻿using Instagram.Services.UserAPI.Models;
+using Instagram.Services.UserAPI.Models.Dto;
+using Instagram.Services.UserAPI.Service.IService;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace Instagram.Services.AuthenticationAPI.Service {
+namespace Instagram.Services.UserAPI.Service {
     public class JwtTokenGenerator : IJwtTokenGenerator {
         private readonly JwtOptions _jwtOptions;
         public JwtTokenGenerator(IOptions<JwtOptions> jwtOptions) {

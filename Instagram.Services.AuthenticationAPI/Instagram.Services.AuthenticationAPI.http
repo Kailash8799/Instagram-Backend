@@ -1,6 +1,0 @@
-@Instagram.Services.AuthenticationAPI_HostAddress = http://localhost:5002
-
-GET {{Instagram.Services.AuthenticationAPI_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

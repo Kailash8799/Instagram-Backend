@@ -1,10 +1,9 @@
 ﻿using Instagram.Services.UserAPI.Models.Dto;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace Instagram.Services.UserAPI.Service.IService {
     public interface IUserService {
-        Task<LoginResponseDTO> GetProfile(LoginRequestDTO loginRequestDto);
-        Task<RegistrationResponseDTO> UpdateProfile(RegistrationRequestDTO registrationRequestDto);
-        Task<LoginResponseDTO> UpdateProfilePicture(LoginRequestDTO loginRequestDto);
-        Task<LoginResponseDTO> RemoveProfilePicture(LoginRequestDTO loginRequestDto);
+        UserDTO? GetProfile(string id);
+        Task<string> UpdateProfilePicture(UserDTO userPatchDTO);
     }
 }

@@ -1,22 +1,46 @@
-﻿using Instagram.Services.UserAPI.Models.Dto;
+﻿using Instagram.Services.UserAPI.Data;
+using Instagram.Services.UserAPI.Models.Dto;
 using Instagram.Services.UserAPI.Service.IService;
+using AutoMapper;
+using Instagram.Services.UserAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Instagram.Services.UserAPI.Service {
     public class UserService : IUserService {
-        public Task<LoginResponseDTO> GetProfile(LoginRequestDTO loginRequestDto) {
-            throw new NotImplementedException();
+           
+        private readonly AppDbContext _dbContext;
+        private readonly IMapper _mapper;
+        public UserService(AppDbContext dbContext, IMapper mapper) {
+            _dbContext = dbContext;
+            _mapper = mapper;
         }
-
-        public Task<LoginResponseDTO> RemoveProfilePicture(LoginRequestDTO loginRequestDto) {
-            throw new NotImplementedException();
+        public UserDTO? GetProfile(string id) {
+            try {
+                var user = _dbContext.User.AsNoTracking().FirstOrDefault(u => u.Id == id);
+                if (user == null) {
+                    return null;
+                }
+                UserDTO updateuserDTO = _mapper.Map<UserDTO>(user);
+                return updateuserDTO;
+            } catch (Exception) {
+                return null;
+            }
         }
-
-        public Task<RegistrationResponseDTO> UpdateProfile(RegistrationRequestDTO registrationRequestDto) {
-            throw new NotImplementedException();
-        }
-
-        public Task<LoginResponseDTO> UpdateProfilePicture(LoginRequestDTO loginRequestDto) {
-            throw new NotImplementedException();
+        public async Task<string> UpdateProfilePicture(UserDTO userPatchDTO) {
+            try {
+                var user = await _dbContext.User.FirstOrDefaultAsync(u => u.Id == userPatchDTO.Id);
+                if (user == null) {
+                    return "";
+                }
+                _mapper.Map(userPatchDTO, user);
+                user.UpdatedAt = DateTime.Now;
+                _dbContext.User.Update(user);
+                await _dbContext.SaveChangesAsync();
+                return user.ProfilePictureUrl;
+            }catch (Exception ex) {
+                Console.WriteLine(ex);
+                return "";
+            }
         }
     }
 }

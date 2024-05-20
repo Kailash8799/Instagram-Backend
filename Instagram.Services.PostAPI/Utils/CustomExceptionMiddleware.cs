@@ -1,15 +1,12 @@
 ﻿using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
 using System.Net;
 
 namespace Instagram.Services.PostAPI.Utils {
     public class CustomExceptionMiddleware {
         private readonly RequestDelegate _next;
-        private readonly ILogger<CustomExceptionMiddleware> _logger;
 
-        public CustomExceptionMiddleware(RequestDelegate next, ILogger<CustomExceptionMiddleware> logger) {
+        public CustomExceptionMiddleware(RequestDelegate next) {
             _next = next;
-            _logger = logger;
         }
 
         public async Task InvokeAsync(HttpContext httpContext) {
@@ -19,7 +16,6 @@ namespace Instagram.Services.PostAPI.Utils {
                 await HandleExceptionAsync(httpContext, ex);
             }
         }
-
         private static Task HandleExceptionAsync(HttpContext context, Exception exception) {
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;

@@ -47,12 +47,12 @@ builder.AddAppAuthetication();
 builder.Services.AddAuthorization();
 var app = builder.Build();
 
+app.UseMiddleware<CustomExceptionMiddleware>();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment()) {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseMiddleware<CustomExceptionMiddleware>();
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

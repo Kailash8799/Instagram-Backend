@@ -16,14 +16,17 @@ namespace Instagram.Services.PostAPI.Service {
             _mapper = mapper;
         }
 
-        public PostResponseDTO? GetPostByID(string postId) {
-            throw new NotImplementedException();
+        public PostResponseDTO GetPostByID(string postId) {
+            Post post = _dbContext.Post.AsNoTracking().FirstOrDefault(p => p.Id == new Guid(postId)) ?? throw new Exception("Not Found Post with this ID");
+            PostResponseDTO postResponseDTO = _mapper.Map<PostResponseDTO>(post);
+            return postResponseDTO;
         }
-        public List<PostResponseDTO>? GetPostByUserID(string userId) {
-            throw new NotImplementedException();
+        public List<PostResponseDTO> GetPostByUserID(string userId) {
+            List<Post> userPosts = [.. _dbContext.Post.AsNoTracking().Where(p=>p.UserId == userId)];
+            List<PostResponseDTO> userPostsDto = _mapper.Map<List<PostResponseDTO>>(userPosts);
+            return userPostsDto;
         }
         public Task<string> CreatePost(PostRequestDTO post) {
-            try {
                 Post newpost = _mapper.Map<Post>(post);
                 var validationResults = ValidationHelper.Validate(newpost);
                 if (validationResults.Count > 0) {
@@ -33,34 +36,23 @@ namespace Instagram.Services.PostAPI.Service {
                 _dbContext.Post.Add(newpost);
                 _dbContext.SaveChanges();
                 return Task.FromResult("");
-            } catch(Exception ex) {
-                return Task.FromResult(ex.Message.ToString());
-            }
         }
 
-        public PostResponseDTO? UpdatePost(PostResponseDTO postToUpdate) {
-            try {
-                /* var user = await _dbContext.Post.FirstOrDefaultAsync(u => u.Id == userPatchDTO.Id);
-                 if (user == null) {
-                     return "";
-                 }
-                 _mapper.Map(userPatchDTO, user);
-                 user.UpdatedAt = DateTime.Now;
-                 _dbContext.User.Update(user);
+        public async Task<PostResponseDTO> UpdatePost(string Id, UpdatePostRequestDTO postToUpdate) {
+                 var post = await _dbContext.Post.AsNoTracking().FirstOrDefaultAsync(u => u.Id == new Guid(Id)) ?? throw new Exception("Post not found");
+                 post = _mapper.Map(postToUpdate, post);
+                 post.UpdatedAt = DateTime.Now;
+                 _dbContext.Post.Update(post);
                  await _dbContext.SaveChangesAsync();
-                 return user.ProfilePictureUrl;*/
-                return null;
-            } catch (Exception ex) {
-                Console.WriteLine(ex);
-                return null;
-            }
+                 PostResponseDTO postResponseDTO = _mapper.Map<PostResponseDTO>(post);
+                 return postResponseDTO;
         }
 
         public bool DeletePost(string postId) {
-            throw new NotImplementedException();
+            Post post = _dbContext.Post.AsNoTracking().FirstOrDefault(p => p.Id == new Guid(postId)) ?? throw new Exception("Post not found with this ID");
+            _dbContext.Remove(post);
+            _dbContext.SaveChanges();
+            return true;
         }
-
-
-
     }
 }

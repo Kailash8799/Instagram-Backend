@@ -2,10 +2,10 @@
 
 namespace Instagram.Services.PostAPI.Service.IService {
     public interface IPostService {
-        List<PostResponseDTO>? GetPostByUserID(string userId);
-        PostResponseDTO? GetPostByID(string postId);
+        List<PostResponseDTO> GetPostByUserID(string userId);
+        PostResponseDTO GetPostByID(string postId);
         Task<string> CreatePost(PostRequestDTO post);
-        PostResponseDTO? UpdatePost(PostResponseDTO postToUpdate);
+        Task<PostResponseDTO> UpdatePost(string Id, UpdatePostRequestDTO postToUpdate);
         bool DeletePost(string postId);
     }
 }

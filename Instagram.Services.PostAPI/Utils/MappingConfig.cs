@@ -9,6 +9,9 @@ namespace Instagram.Services.PostAPI.Utils {
             CreateMap<PostRequestDTO, Post>();
             CreateMap<Post, PostResponseDTO>();
             CreateMap<PostResponseDTO, Post>();
+            CreateMap<PostResponseDTO, UpdatePostRequestDTO>();
+            CreateMap<UpdatePostRequestDTO, PostResponseDTO>();
+            CreateMap<UpdatePostRequestDTO, Post>();
         }
     }
 }

@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Instagram.Services.PostAPI"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Instagram.Services.UserAPI", "Instagram.Services.UserAPI\Instagram.Services.UserAPI.csproj", "{84F18E40-0625-4C96-85A3-91ACF8EE3B81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagram.Service.MediaAPI", "Instagram.Service.MediaAPI\Instagram.Service.MediaAPI.csproj", "{57EF587A-1401-425C-894D-17D77CEDB5DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Instagram.Service.MediaAPI", "Instagram.Service.MediaAPI\Instagram.Service.MediaAPI.csproj", "{57EF587A-1401-425C-894D-17D77CEDB5DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagram.Service.CommentAPI", "Instagram.Service.CommentAPI\Instagram.Service.CommentAPI.csproj", "{09386AF8-BF80-4455-8A5D-76631BC2B48F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{57EF587A-1401-425C-894D-17D77CEDB5DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57EF587A-1401-425C-894D-17D77CEDB5DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57EF587A-1401-425C-894D-17D77CEDB5DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09386AF8-BF80-4455-8A5D-76631BC2B48F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09386AF8-BF80-4455-8A5D-76631BC2B48F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09386AF8-BF80-4455-8A5D-76631BC2B48F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09386AF8-BF80-4455-8A5D-76631BC2B48F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{22F38C89-55F3-4F2E-A91D-91DEC710C28D} = {D0D5BF9F-7FA2-47EE-80EA-53F75DD5C8AF}
 		{84F18E40-0625-4C96-85A3-91ACF8EE3B81} = {D0D5BF9F-7FA2-47EE-80EA-53F75DD5C8AF}
 		{57EF587A-1401-425C-894D-17D77CEDB5DA} = {D0D5BF9F-7FA2-47EE-80EA-53F75DD5C8AF}
+		{09386AF8-BF80-4455-8A5D-76631BC2B48F} = {D0D5BF9F-7FA2-47EE-80EA-53F75DD5C8AF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E5D3AEF2-FFDE-449A-9B6F-5CA2719FD816}

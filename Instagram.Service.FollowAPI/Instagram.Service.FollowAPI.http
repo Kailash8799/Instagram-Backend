@@ -1,0 +1,6 @@
+@Instagram.Service.FollowAPI_HostAddress = http://localhost:5250
+
+GET {{Instagram.Service.FollowAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

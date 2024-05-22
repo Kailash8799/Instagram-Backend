@@ -15,7 +15,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Instagram.Services.UserAPI"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Instagram.Service.MediaAPI", "Instagram.Service.MediaAPI\Instagram.Service.MediaAPI.csproj", "{57EF587A-1401-425C-894D-17D77CEDB5DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagram.Service.CommentAPI", "Instagram.Service.CommentAPI\Instagram.Service.CommentAPI.csproj", "{09386AF8-BF80-4455-8A5D-76631BC2B48F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Instagram.Service.CommentAPI", "Instagram.Service.CommentAPI\Instagram.Service.CommentAPI.csproj", "{09386AF8-BF80-4455-8A5D-76631BC2B48F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagram.Service.LikeAPI", "Instagram.Service.LikeAPI\Instagram.Service.LikeAPI.csproj", "{29A2D450-8A6D-4EE2-9E36-48452414874A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagram.Service.FollowAPI", "Instagram.Service.FollowAPI\Instagram.Service.FollowAPI.csproj", "{E7B91B6D-6D90-4C38-98AB-83ECF0F6A86E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagram.Service.SearchAPI", "Instagram.Service.SearchAPI\Instagram.Service.SearchAPI.csproj", "{B3E35337-01A2-468C-9ECD-3EB6F3A65431}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Instagram.Service.NotificationAPI", "Instagram.Service.NotificationAPI\Instagram.Service.NotificationAPI.csproj", "{ADA58C55-C139-4869-A52F-B4173B69FF6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +47,22 @@ Global
 		{09386AF8-BF80-4455-8A5D-76631BC2B48F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09386AF8-BF80-4455-8A5D-76631BC2B48F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09386AF8-BF80-4455-8A5D-76631BC2B48F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29A2D450-8A6D-4EE2-9E36-48452414874A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29A2D450-8A6D-4EE2-9E36-48452414874A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29A2D450-8A6D-4EE2-9E36-48452414874A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29A2D450-8A6D-4EE2-9E36-48452414874A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7B91B6D-6D90-4C38-98AB-83ECF0F6A86E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7B91B6D-6D90-4C38-98AB-83ECF0F6A86E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7B91B6D-6D90-4C38-98AB-83ECF0F6A86E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7B91B6D-6D90-4C38-98AB-83ECF0F6A86E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3E35337-01A2-468C-9ECD-3EB6F3A65431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3E35337-01A2-468C-9ECD-3EB6F3A65431}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3E35337-01A2-468C-9ECD-3EB6F3A65431}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3E35337-01A2-468C-9ECD-3EB6F3A65431}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA58C55-C139-4869-A52F-B4173B69FF6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA58C55-C139-4869-A52F-B4173B69FF6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA58C55-C139-4869-A52F-B4173B69FF6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA58C55-C139-4869-A52F-B4173B69FF6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +72,10 @@ Global
 		{84F18E40-0625-4C96-85A3-91ACF8EE3B81} = {D0D5BF9F-7FA2-47EE-80EA-53F75DD5C8AF}
 		{57EF587A-1401-425C-894D-17D77CEDB5DA} = {D0D5BF9F-7FA2-47EE-80EA-53F75DD5C8AF}
 		{09386AF8-BF80-4455-8A5D-76631BC2B48F} = {D0D5BF9F-7FA2-47EE-80EA-53F75DD5C8AF}
+		{29A2D450-8A6D-4EE2-9E36-48452414874A} = {D0D5BF9F-7FA2-47EE-80EA-53F75DD5C8AF}
+		{E7B91B6D-6D90-4C38-98AB-83ECF0F6A86E} = {D0D5BF9F-7FA2-47EE-80EA-53F75DD5C8AF}
+		{B3E35337-01A2-468C-9ECD-3EB6F3A65431} = {D0D5BF9F-7FA2-47EE-80EA-53F75DD5C8AF}
+		{ADA58C55-C139-4869-A52F-B4173B69FF6A} = {D0D5BF9F-7FA2-47EE-80EA-53F75DD5C8AF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E5D3AEF2-FFDE-449A-9B6F-5CA2719FD816}

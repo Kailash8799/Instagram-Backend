@@ -1,0 +1,6 @@
+@Instagram.Service.APIGateWay_HostAddress = http://localhost:5185
+
+GET {{Instagram.Service.APIGateWay_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,31 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: instagramservicesuserapi
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: instagramservicesuserapi
+  template:
+    metadata:
+      labels:
+        app: instagramservicesuserapi
+    spec:
+      containers:
+      - name: instagramservicesuserapi
+        image: instagrammicro.azurecr.io/instagramservicesuserapi:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: instagramservicesuserapi
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: instagramservicesuserapi

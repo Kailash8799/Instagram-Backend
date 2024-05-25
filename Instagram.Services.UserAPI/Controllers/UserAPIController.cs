@@ -62,7 +62,7 @@ namespace Instagram.Services.UserAPI.Controllers {
                 var result = ApiResponseHelper.CreateResponse(400, "Some field are not valid", false, "");
                 return BadRequest(result);
             }
-            string res = await _userService.UpdateProfilePicture(userDTO);
+            string res = await _userService.UpdateProfile(userDTO);
             if(string.IsNullOrEmpty(res)) {
                 var result = ApiResponseHelper.CreateResponse(400, "Profile not updated", false, "");
                 return BadRequest(result);

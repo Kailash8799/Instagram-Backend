@@ -4,6 +4,6 @@ using Microsoft.AspNetCore.JsonPatch;
 namespace Instagram.Services.UserAPI.Service.IService {
     public interface IUserService {
         UserDTO? GetProfile(string id);
-        Task<string> UpdateProfilePicture(UserDTO userPatchDTO);
+        Task<string> UpdateProfile(UserDTO userPatchDTO);
     }
 }

@@ -26,7 +26,7 @@ namespace Instagram.Services.UserAPI.Service {
                 return null;
             }
         }
-        public async Task<string> UpdateProfilePicture(UserDTO userPatchDTO) {
+        public async Task<string> UpdateProfile(UserDTO userPatchDTO) {
             try {
                 var user = await _dbContext.User.FirstOrDefaultAsync(u => u.Id == userPatchDTO.Id);
                 if (user == null) {
@@ -36,7 +36,7 @@ namespace Instagram.Services.UserAPI.Service {
                 user.UpdatedAt = DateTime.Now;
                 _dbContext.User.Update(user);
                 await _dbContext.SaveChangesAsync();
-                return user.ProfilePictureUrl;
+                return "Profile updated successfully";
             }catch (Exception ex) {
                 Console.WriteLine(ex);
                 return "";
